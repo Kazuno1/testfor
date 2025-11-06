@@ -2149,3 +2149,77 @@ body {
     padding: 20px;
   }
 }
+
+/* === MOBILE NAVBAR FIX === */
+@media (max-width: 880px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  /* Hamburger toggle visible */
+  .mobile-toggle {
+    display: block;
+    font-size: 1.6rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Collapse nav links by default */
+  .nav-links {
+    position: fixed;
+    top: 68px;
+    right: -100%;
+    width: 100%;
+    height: calc(100vh - 68px);
+    background: rgba(3,6,10,0.98);
+    backdrop-filter: blur(8px);
+    transition: right 0.3s ease;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  /* When menu is opened */
+  .nav-links.open {
+    right: 0;
+  }
+
+  /* Stack items vertically */
+  .nav-links ul {
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .nav-links ul li a {
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+
+  /* Disable hover dropdowns on mobile */
+  .has-dropdown .dropdown {
+    position: static;
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: none;
+    padding-left: 20px;
+  }
+
+  /* Show submenu when clicked */
+  .has-dropdown.open .dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Optional subtle highlight */
+  .nav-links ul li a:hover {
+    color: var(--accent);
+  }
+}
